@@ -15,4 +15,10 @@ app.use(express.urlencoded({extended: true, limit: "16kb"}));
 app.use(express.static("public"));
 app.use(cookieParser())
 
+// importng register user
+
+import userRouter from "./routes/user.routes.js"
+
+// route decliration
+app.use("/api/v1/users", userRouter)
 export default app;
