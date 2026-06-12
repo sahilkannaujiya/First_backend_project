@@ -1,12 +1,14 @@
 import dotenv from "dotenv";
-import app from "./app.js";
+
 
 dotenv.config({
   path: "./.env",
 });
 console.log(process.env.MONGO_URI);
 
-import connectDB from "./db/index.js";
+const {default: app} = await import ("./app.js");
+const {default: connectDB} =  await import ("./db/index.js");
+
 
 connectDB()
   .then(() => {
